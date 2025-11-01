@@ -1,0 +1,42 @@
+running egg_info
+creating ../../build/rx200_moveit_control/rx200_moveit_control.egg-info
+writing ../../build/rx200_moveit_control/rx200_moveit_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/rx200_moveit_control/rx200_moveit_control.egg-info/dependency_links.txt
+writing entry points to ../../build/rx200_moveit_control/rx200_moveit_control.egg-info/entry_points.txt
+writing requirements to ../../build/rx200_moveit_control/rx200_moveit_control.egg-info/requires.txt
+writing top-level names to ../../build/rx200_moveit_control/rx200_moveit_control.egg-info/top_level.txt
+writing manifest file '../../build/rx200_moveit_control/rx200_moveit_control.egg-info/SOURCES.txt'
+reading manifest file '../../build/rx200_moveit_control/rx200_moveit_control.egg-info/SOURCES.txt'
+writing manifest file '../../build/rx200_moveit_control/rx200_moveit_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/master26/assignment_1_group_3/build/rx200_moveit_control/build
+creating /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib
+creating /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control
+copying rx200_moveit_control/rx200_moveit_action_client.py -> /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control
+copying rx200_moveit_control/__init__.py -> /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control
+copying rx200_moveit_control/rx200_pick_place_client.py -> /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control
+copying rx200_moveit_control/minimal.launch.py -> /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control
+running install
+running install_lib
+creating /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control
+copying /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control/rx200_moveit_action_client.py -> /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control
+copying /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control/__init__.py -> /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control
+copying /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control/rx200_pick_place_client.py -> /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control
+copying /home/master26/assignment_1_group_3/build/rx200_moveit_control/build/lib/rx200_moveit_control/minimal.launch.py -> /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control
+byte-compiling /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control/rx200_moveit_action_client.py to rx200_moveit_action_client.cpython-310.pyc
+byte-compiling /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control/rx200_pick_place_client.py to rx200_pick_place_client.cpython-310.pyc
+byte-compiling /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control/minimal.launch.py to minimal.launch.cpython-310.pyc
+running install_data
+creating /home/master26/assignment_1_group_3/install/rx200_moveit_control/share/ament_index
+creating /home/master26/assignment_1_group_3/install/rx200_moveit_control/share/ament_index/resource_index
+creating /home/master26/assignment_1_group_3/install/rx200_moveit_control/share/ament_index/resource_index/packages
+copying resource/rx200_moveit_control -> /home/master26/assignment_1_group_3/install/rx200_moveit_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/master26/assignment_1_group_3/install/rx200_moveit_control/share/rx200_moveit_control
+running install_egg_info
+Copying ../../build/rx200_moveit_control/rx200_moveit_control.egg-info to /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/python3.10/site-packages/rx200_moveit_control-0.0.1-py3.10.egg-info
+running install_scripts
+Installing rx200_moveit_client script to /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/rx200_moveit_control
+Installing rx200_pick_place_client script to /home/master26/assignment_1_group_3/install/rx200_moveit_control/lib/rx200_moveit_control
+writing list of installed files to '/home/master26/assignment_1_group_3/build/rx200_moveit_control/install.log'
