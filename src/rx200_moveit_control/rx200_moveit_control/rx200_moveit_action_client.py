@@ -141,14 +141,24 @@ def main():
     node = MoveItEEClient(control_group='arm')
     node_g = MoveItEEClient(control_group='gripper')
 
-    parser = argparse.ArgumentParser(description="Pick and Place parameters")
-    parser.add_argument('--pick_x', type=float, default=0.2, help='Pick X coordinate')
-    parser.add_argument('--pick_y', type=float, default=0.10, help='Pick Y coordinate')
-    parser.add_argument('--place_x', type=float, default=-0.4, help='Place X coordinate')
-    parser.add_argument('--place_y', type=float, default=-0.20, help='Place Y coordinate')
-    parser.add_argument('--z_hover', type=float, default=0.25, help='Z hover height')
-    parser.add_argument('--z_pick', type=float, default=0.15, help='Z pick height')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--pick_x', type=float, default=0.2)
+    parser.add_argument('--pick_y', type=float, default=0.10)
+    parser.add_argument('--place_x', type=float, default=-0.4)
+    parser.add_argument('--place_y', type=float, default=-0.20)
+    parser.add_argument('--z_hover', type=float, default=0.30)
+    parser.add_argument('--z_pick', type=float, default=0.15)
     args = parser.parse_args()
+
+    xy_min, xy_max = -0.5, 0.5
+
+    for coord, value in vars(args).items():
+        if "x" in coord or "y" in coord:
+            if value < xy_min or value > xy_max:
+                node.get_logger().error(f"Value for {coord} is out of reach. Movement aborted.")
+                rclpy.shutdown()
+                return
+                
 
     x_o = args.pick_x
     y_o = args.pick_y
@@ -160,8 +170,8 @@ def main():
     waypoints = [
         (x_o, y_o, z_hover, 'open'),
         (x_o, y_o, z_pick, 'close'),
-        (x_o, y_o, z_hover, None),
-        (x_t, y_t, z_hover, None),
+        (x_o, y_o, z_hover, 'close'),
+        (x_t, y_t, z_hover, 'close'),
         (x_t, y_t, z_pick, 'open'),
         (x_t, y_t, z_hover, 'close'),
     ]
