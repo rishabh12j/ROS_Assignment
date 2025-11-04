@@ -41,7 +41,7 @@ class MoveItEEClient(Node):
 
         jc = JointConstraint()
         jc.joint_name = self.gripper_joint
-        jc.position = 0.05 if open else 0.01
+        jc.position = 0.05 if open else 0.005
         jc.tolerance_above = 0.01
         jc.tolerance_below = 0.01
         jc.weight = 1.0
