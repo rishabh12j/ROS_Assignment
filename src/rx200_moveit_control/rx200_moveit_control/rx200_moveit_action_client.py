@@ -146,8 +146,8 @@ def main():
     parser.add_argument('--pick_y', type=float, default=0.10)
     parser.add_argument('--place_x', type=float, default=-0.4)
     parser.add_argument('--place_y', type=float, default=-0.20)
-    parser.add_argument('--z_hover', type=float, default=0.30)
-    parser.add_argument('--z_pick', type=float, default=0.15)
+    parser.add_argument('--z_hover', type=float, default=0.20)
+    parser.add_argument('--z_pick', type=float, default=0.02)
     args = parser.parse_args()
 
     xy_min, xy_max = -0.5, 0.5
@@ -183,7 +183,8 @@ def main():
             rclpy.spin_once(node_g, timeout_sec=0.1)
 
         node.get_logger().info(f"[Moving] ({x},{y},{z})")
-        node.send_pose(x, y, z)
+        pitch = math.atan2(2*z, math.sqrt(x**2 + y**2))
+        node.send_pose(x, y, z, pitch=pitch)
 
         while not node.motion_done:
             rclpy.spin_once(node, timeout_sec=0.1)
