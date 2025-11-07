@@ -1,11 +1,51 @@
-# ROS_Assignment
+Implementation Description:
 
+ In this project, we focused on improving the ROS2-based control for the RX200 robotic arm to carry out pick and place operations. We changed the original code to add waypoint-based movement, gripper control, and synchronization between motions. These updates made the overall process smoother and more reliable.
 
-Explaining the basics of what we have changed in james's code
+Build Configuration Description:
 
-1. To get parameters in the arguments x,y to get pick and place points
-2. We have split these 2 points into 6 waypoints , having z_hover.
-3. To work with gripper we have introduced open and close positions because it is a static information on which of these 6 waypoints we need to open it or close it.
-4. To overcome -4 error that waypoints are being sent very fast we introduced motion.done flag that helps us to see if previous motion is completed or not.
-5. To introduce pitch and yaw we have used math package of python(ref 1. https://bukkit.org/threads/tutorial-how-to-calculate-vectors.138849/, ref 2. https://uk.mathworks.com/matlabcentral/answers/298940-how-to-calculate-roll-pitch-and-yaw-from-xyz-coordinates-of-3-planar-points)
-6. To work with arm and gripper introduced a flag for each of the node to be activated.
+Build and source the setup file by:
+
+...cd directory to ros assignment
+
+colcon build
+source install/setup.bash
+
+Run Commands:
+
+To launch the default setup:
+ros2 run rx200_moveit_control  rx200_moveit_client
+
+To run a particular pick and place coordinate
+ros2 run rx200_moveit_control rx200_moveit_client --pick_x 0.3 --pick_y 0.1 --place_x -0.5 --place_y -0.2
+
+Detailed Description
+
+    1. We added parameters to take input points (x, y) for pick and place operations. 
+
+    2. These points are divided into six way points, including a hover position (z_hover) to regulate the height of the end effector and making movement smoother. 
+
+    3. The gripper now has open and close positions defined based on the way point where the robot is currently located. 
+
+    4. To prevent fast command execution errors, we added a motion_done flag to confirm that each movement is complete before the next one starts. 
+
+    5. Pitch and yaw values are calculated using Python’s math package. References are included below. 
+
+    6. Control groups were introduced to separately activate the arm and gripper nodes when necessary. 
+       
+    7. Implemented checks for edge values for x and y coordinates. 
+
+References used for pitch and yaw:
+
+    • https://bukkit.org/threads/tutorial-how-to-calculate-vectors.138849
+
+    • https://uk.mathworks.com/matlabcentral/answers/298940/how-to-calculate-roll-pitch-and-yaw-from-xyz-coordinates-of-3-planar-points
+
+Parsing Coordinates
+
+The node accepts coordinates for the pick and place task. It automatically converts them into six safe waypoints and executes them one by one. It controls the gripper at the right moments.
+
+Team Members
+    • Rishabh Jain
+    • Luca Ortolan
+    • Saandeep Guddanti
