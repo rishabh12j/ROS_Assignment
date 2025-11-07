@@ -1,8 +1,8 @@
-Implementation Description:
+# Implementation Description:
 
  In this project, we focused on improving the ROS2-based control for the RX200 robotic arm to carry out pick and place operations. We changed the original code to add waypoint-based movement, gripper control, and synchronization between motions. These updates made the overall process smoother and more reliable.
 
-Build Configuration Description:
+# Build Configuration Description:
 
 Build and source the setup file by:
 
@@ -11,7 +11,7 @@ Build and source the setup file by:
 colcon build
 source install/setup.bash
 
-Run Commands:
+# Run Commands:
 
 To launch the default setup:
 ros2 run rx200_moveit_control  rx200_moveit_client
@@ -19,7 +19,7 @@ ros2 run rx200_moveit_control  rx200_moveit_client
 To run a particular pick and place coordinate
 ros2 run rx200_moveit_control rx200_moveit_client --pick_x 0.3 --pick_y 0.1 --place_x -0.5 --place_y -0.2
 
-Detailed Description
+# Detailed Description
 
     1. We added parameters to take input points (x, y) for pick and place operations. 
 
@@ -41,11 +41,11 @@ References used for pitch and yaw:
 
     • https://uk.mathworks.com/matlabcentral/answers/298940/how-to-calculate-roll-pitch-and-yaw-from-xyz-coordinates-of-3-planar-points
 
-Parsing Coordinates
+# Parsing Coordinates
 
 The node accepts coordinates for the pick and place task. It automatically converts them into six safe waypoints and executes them one by one. It controls the gripper at the right moments.
 
-Team Members
+# Team Members
     • Rishabh Jain
     • Luca Ortolan
     • Saandeep Guddanti
